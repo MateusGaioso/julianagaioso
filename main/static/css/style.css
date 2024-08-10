@@ -1,0 +1,50 @@
+/* Estilo para telas grandes (desktop) */
+.styled-section{
+    background-color: bisque !important;
+}
+
+.justify{
+    text-align: justify;
+}
+
+
+@media (min-width: 768px) {
+    body {
+        overflow: hidden; /* Desabilita a rolagem */
+    }
+    
+    .center-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .video-container {
+        display: flex;
+        justify-content: center; /* Centraliza horizontalmente */
+        align-items: center; /* Centraliza verticalmente */
+        height: 100vh; /* Garante que o contêiner tenha a altura da viewport */
+        overflow: hidden;
+    }
+
+    .responsive-video {
+        height: 100vh; /* Mantém a proporção do vídeo */
+        object-fit: cover; /* Corta o vídeo para cobrir toda a área disponível */
+    }
+
+    .mobile-container {
+        display: none !important; /* Esconde o vídeo no desktop */
+    }
+
+}
+
+
+/* Estilo para telas pequenas (mobile) */
+@media (max-width: 767px) {
+    .responsive-video {
+        width: 100%; /* Ajusta automaticamente a largura no mobile */
+        height: 100vh; /* Faz o vídeo ocupar 100% da altura da viewport no mobile */
+        object-fit: cover; /* Garante que o vídeo se ajuste dentro da tela sem cortar */
+        display: block;
+    }
+}
