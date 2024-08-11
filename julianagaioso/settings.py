@@ -39,9 +39,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "main",
     "simple_history",
+    "main",
 ]
+
+if os.environ.get('DJANGO_ENV') == 'development':
+    INSTALLED_APPS += ["livereload"]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
