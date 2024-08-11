@@ -54,8 +54,11 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "livereload.middleware.LiveReloadScript",
 ]
+
+if os.environ.get('DJANGO_ENV') == 'development':
+    MIDDLEWARE += ["livereload.middleware.LiveReloadScript"]
+
 
 ROOT_URLCONF = "julianagaioso.urls"
 
@@ -132,9 +135,6 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-# Adicione esta linha ao final do arquivo settings.py
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 # Default primary key field type
